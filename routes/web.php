@@ -6,12 +6,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/', function () {
-
-    defer(function () {
-        sleep(3);
-        logger('3 seconds later');
-    });
-    return 'Submitted';
-});
+Route::post('/', \App\Http\Controllers\SubmitController::class);
 
