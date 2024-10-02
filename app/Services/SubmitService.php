@@ -5,11 +5,11 @@ namespace App\Services;
 class SubmitService
 {
 
-    public function deferredSubmit(): void
+    public function deferredSubmit(string $log = ''): void
     {
-        defer(function () {
+        defer(function () use ($log) {
             sleep(3);
-            logger('3 seconds later');
+            logger('3 seconds later in the service ' . $log);
         });
     }
 }
